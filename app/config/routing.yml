@@ -4,4 +4,4 @@ NelmioApiDocBundle:
 
 app:
     resource: "@AppBundle/Controller/"
-    type:     annotation
+    type:     rest

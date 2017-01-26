@@ -2,20 +2,24 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations\Route;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-class DefaultController extends Controller
+class DefaultController extends FOSRestController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/")
+     * @ApiDoc(
+     *     section = "Default",
+     *     description = "Default index action",
+     * )
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+        $data = ['message' => 'Hello API!'];
+        $view = $this->view($data);
+
+        return $this->handleView($view);
     }
 }
