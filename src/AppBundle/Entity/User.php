@@ -34,6 +34,14 @@ class User
      */
     protected $name;
 
+    /**
+     * @var UserDetail
+     *
+     * @ORM\ManyToOne(targetEntity="UserDetail")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $userDetails;
+
 
     /**
      * Get id
@@ -68,4 +76,24 @@ class User
     {
         return $this->name;
     }
+
+    /**
+     * @return UserDetail
+     */
+    public function getUserDetails()
+    {
+        return $this->userDetails;
+    }
+
+    /**
+     * @param UserDetail $userDetails
+     * @return $this
+     */
+    public function setUserDetails(UserDetail $userDetails)
+    {
+        $this->userDetails = $userDetails;
+
+        return $this;
+    }
+
 }
