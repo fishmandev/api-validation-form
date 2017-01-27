@@ -3,12 +3,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ExclusionPolicy("all")
  */
 class User
 {
@@ -25,8 +29,10 @@ class User
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=32)
+     * @Assert\NotNull()
+     * @Expose
      */
-    private $name;
+    protected $name;
 
 
     /**

@@ -73,5 +73,17 @@ fos_rest:
     routing_loader:
         default_format: json
         include_format: false
+    exception:
+        messages:
+            Symfony\Component\HttpKernel\Exception\BadRequestHttpException: true
+    view:
+        #failed_validation: HTTP_BAD_REQUEST
+        view_response_listener: 'force'
+        formats:
+            json: true
 
-nelmio_api_doc: ~
+
+nelmio_api_doc:
+    sandbox:
+        request_format:
+            method: accept_header # Remove the parameter _format in POST and PUT request
