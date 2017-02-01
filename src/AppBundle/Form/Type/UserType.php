@@ -3,6 +3,7 @@
 namespace AppBundle\Form\Type;
 
 use AppBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +21,10 @@ class UserType extends AbstractType
     {
         $builder->add('name', null, [
             'description' => 'The user name'
+        ]);
+        $builder->add('userDetails', EntityType::class, [
+            'class' => 'AppBundle:UserDetail',
+            'description' => 'The user detail id',
         ]);
     }
 
