@@ -40,6 +40,9 @@ class DefaultController extends FOSRestController
      *         "class" = "AppBundle\Form\Type\UserType",
      *         "name" = ""
      *     },
+     *     parameters = {
+     *         {"name" = "detail_id", "dataType" = "integer", "required" = true, "description" = "The user detail ID"},
+     *     },
      *     statusCodes = {
      *         201 = "Returned when successful",
      *         400 = "Returned when the parameters are not valid"

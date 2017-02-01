@@ -22,9 +22,9 @@ class UserType extends AbstractType
         $builder->add('name', null, [
             'description' => 'The user name'
         ]);
-        $builder->add('userDetails', EntityType::class, [
+        $builder->add('detail_id', EntityType::class, [
             'class' => 'AppBundle:UserDetail',
-            'description' => 'The user detail id',
+            'property_path' => 'userDetails'
         ]);
     }
 
